@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{app_name}}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="css/index.css" inline>
+    <link href="{{icon_url}}" rel="shortcut icon">
+</head>
+    <div class="warning">
+        This example just for email html template, so all styles is inline.
+    </div>
+    @@include('app/tpl/index.tpl')
+    <script src="http://s0.ipstatp.com/js/lib/zepto.js"></script>
+    <script src="https://www.google-analytics.com/analytics.js"></script>
+    <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-74300252-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script src="js/index.js" inline></script>
+</body>
+</html>
