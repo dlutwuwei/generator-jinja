@@ -12,9 +12,9 @@ Sass: Include Sass
 ## Getting Started
 
 - Install: `npm install --global yo gulp-cli generator-jinja`
-- Run `yo webapp` to scaffold your webapp
+- Run `mkdir test_project && yo jina` to scaffold your webapp
 - Run `gulp dev` to preview and watch for changes
-- Run `gulp proc` to build your jinja template for production
+- Run `gulp proc` to build your jinja template for production, file is in `dist/release`
 
 ## Options
 
