@@ -11,7 +11,11 @@
         This example just for email html template, so all styles is inline.
     </div>
     @@include('app/tpl/index.tpl')
+    <% if(includeZepto) { -%>
     <script src="http://s0.ipstatp.com/js/lib/zepto.js"></script>
+    <% } else if(includeJQuery) { -%>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <% } -%>
     <script src="https://www.google-analytics.com/analytics.js"></script>
     <script>
         window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;

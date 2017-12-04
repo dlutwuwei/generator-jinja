@@ -55,21 +55,33 @@ module.exports = class extends Generator {
       message: 'Would you like to use sass?',
       default: true
     }, {
-      type: 'confirm',
-      name: 'includeJQuery',
-      message: 'Would you like to include jQuery?',
-      default: false
+      type: 'checkbox',
+      name: 'features',
+      message: 'Which additional Library would you like to include?',
+      choices: [{
+        name: 'None',
+        value: 'includeNone',
+        checked: false
+      }, {
+        name: 'jquery',
+        value: 'includeJQuery',
+        checked: false
+      }, {
+        name: 'zepto',
+        value: 'includeZepto',
+        checked: true
+      }]
     }];
 
     return this.prompt(prompts).then(answers => {
-      // const features = answers.features;
-      // const hasFeature = feat => features && features.indexOf(feat) !== -1;
-
+      const features = answers.features;
+      const hasFeature = feat => features && features.indexOf(feat) !== -1;
       // manually deal with the response, get back and store the results.
       // we change a bit this way of doing to automatically do this in the self.prompt() method.
       this.includeSass = answers.includeSass;
-      this.includejQuery = answers.includejQuery;
-
+      this.includeJQuery = hasFeature('includeJQuery');
+      this.includeZepto = hasFeature('includeZepto');
+      this.includeNone = hasFeature('includeNone');
     });
   }
   _writingHtml() {
@@ -77,8 +89,9 @@ module.exports = class extends Generator {
       this.templatePath('index.html'),
       this.destinationPath('app/index.html'),
       {
-        includeSass: this.includeSass,
-        includeJQuery: this.includeJQuery
+        includeJQuery: this.includeJQuery,
+        includeNone: this.includeNone,
+        includeZepto: this.includeZepto
       }
     );
   }
