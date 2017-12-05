@@ -8,6 +8,7 @@ Creates a new basic front-end web project for jinja template test and create.
 # Feature
 
 Sass: Include Sass
+Zepto Or Jquery
 
 ## Getting Started
 

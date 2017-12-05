@@ -82,6 +82,11 @@ module.exports = class extends Generator {
       this.includeJQuery = hasFeature('includeJQuery');
       this.includeZepto = hasFeature('includeZepto');
       this.includeNone = hasFeature('includeNone');
+      console.log(this.includeNone,'--------')
+      if(this.includeNone) {
+        this.includeJQuery = false;
+        this.includeZepto = false;
+      }
     });
   }
   _writingHtml() {
@@ -135,7 +140,7 @@ module.exports = class extends Generator {
   _writingScripts() {
     this.fs.copyTpl(
       this.templatePath('js/index.js'),
-      this.destinationPath('app/scripts/index.js')
+      this.destinationPath('app/js/index.js')
     );
   }
   _writingJinja() {
